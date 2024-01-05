@@ -1,6 +1,13 @@
-from dhanhq import dhanhq
+from fyers_apiv3 import fyersModel
 
-dhan = dhanhq("client_id", "access_token")
-dhan.historical_minute_charts(data)
+client_id = "XC4XXXXM-100"
+access_token = "eyJ0eXXXXXXXX2c5-Y3RgS8wR14g"
 
-dhan.place_order(data)
+# Initialize the FyersModel instance with your client_id, access_token, and enable async mode
+fyers = fyersModel.FyersModel(
+    client_id=client_id, token=access_token, is_async=True, log_path=""
+)
+
+# Make a request to get the funds information
+response = fyers.funds()
+print(response)
